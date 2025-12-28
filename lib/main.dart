@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'screens/login_screen.dart';
 import 'firebase_options.dart';
+import 'services/pytorch_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await PytorchService.loadModel();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
